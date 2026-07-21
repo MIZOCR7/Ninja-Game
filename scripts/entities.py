@@ -34,12 +34,12 @@ class PhysicsEntity:
     for rect in tilemap.physics_rects_around(self.pos):
       if entity_rect.colliderect(rect):
         if frame_movement[0] > 0:
-          entity_rect.right = entity_rect.left
+          entity_rect.right = rect.left
           self.collisions['right'] = True 
         if frame_movement[0] < 0:
           entity_rect.left = rect.right 
           self.collisions['left'] = True 
-        self.pos[0] += frame_movement[1] 
+        self.pos[0] = entity_rect.x
         
     self.pos[1] += frame_movement[1]
     entity_rect = self.rect()
@@ -62,7 +62,9 @@ class PhysicsEntity:
     self.velocity[1] = min(5, self.velocity[1] + 0.1) 
     
     if self.collisions['down'] or self.collisions['up']:
-      self.velocity[1] = 0 
+      self.velocity[1] = 0
+    
+    self.animation.update()
     
   def render(self, surf, offset=(0,0)):
     surf.blit(pygame.transform.flip(self.animation.img(), self.flip, False), (self.pos[0] - offset[0] + self.anim_offset[0], self.pos[1] - offset[1] + self.anim_offset[1])) 
@@ -70,10 +72,11 @@ class PhysicsEntity:
 
 class Player(PhysicsEntity):
   def __init__(self, game, pos, size):
-    super().__init__(game, 'player', pos, size) 
+    super().__init__(game, 'player', pos, size)
+    self.air_time = 0
     
   def update(self, tilemap, movement=(0,0)):
-    super.update(tilemap, movement=movement)
+    super().update(tilemap, movement=movement)
     
     self.air_time += 1 
     
