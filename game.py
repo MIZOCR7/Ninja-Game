@@ -39,6 +39,7 @@ class Game():
       'player/slide': Animation(load_images('entities/player/slide')),
       'player/wall_slide': Animation(load_images('entities/player/wall_slide')),  
       'particle/leaf': Animation(load_images('particles/leaf'), img_dur=20, loop=False),  
+      'particle/particle': Animation(load_images('particles/particle'), img_dur=6, loop=False) 
     }
     
     
@@ -91,7 +92,7 @@ class Game():
       
       for event in pygame.event.get():
         if event.type == pygame.QUIT: 
-          pygame.quit()
+          pygame.quit() 
           sys.exit()
         if event.type == pygame.KEYDOWN:
           if event.key == pygame.K_a:
@@ -99,7 +100,9 @@ class Game():
           if event.key == pygame.K_d:
             self.movement[1] = True 
           if event.key == pygame.K_w:
-            self.player.velocity[1] = -3
+            self.player.jump()
+          if event.key == pygame.K_x:
+            self.player.dash() 
           if event.key == pygame.K_ESCAPE:
             pygame.quit()
             sys.exit() 
