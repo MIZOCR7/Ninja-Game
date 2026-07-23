@@ -1,17 +1,11 @@
 # Ninja Game
 
-Ninja Game is one of the best pygame projects I have ever worked on, it is really complex using the beauty of pygame and physics behind the game to create full platformer game without the need of Engines like Unity or Godot, all of this to improve my python coding experience :)
+Ninja Game is the best pygame projects I have ever made until now bcs my experience is going on fast after making some simple projects U can find them at my repos until making this platformer game then my next plan is to make a full life game all without a game engine, it is really complex using the beauty of pygame and physics behind the game to create full platformer game, all of this to improve my python coding experience :)
 
-## About the Game
+## What I learnt
 
-In this game, you play as a ninja navigating through action-packed levels filled with enemy guards. You have to use wall sliding, double jumping, and dashing to slice through enemies and dodge incoming enemy gun projectiles. 
+My last game that I submitted to beast was about Ninja but two players figthing each other in one single screen and without levels or extra just some classes working together but here I tried to make things different by gathering more classes and OOP methoods in one place and many files in different paths, this will guide me to the next step of making my coming game by the way I am not a game making lover just got this advice from TIM a Youtube who said that best way to be a smart Software Engineer is making games with python, and now I understand why!!!!!! 
 
-### Key Features
-* **Custom Physics:** Smooth platformer collisions, gravity, and velocity movement.
-* **Movement & Combat:** Wall sliding, wall jumping, and a quick dash attack that cuts down enemies.
-* **Dynamic Effects:** Custom particle systems for leaves, sparks, and screen shaking to make combat feel punchy.
-* **Tilemap System:** Built-in auto-tiling and off-grid decorative objects loaded directly from JSON files.
-* **Parallax Background:** Layered cloud movement that shifts depth as you scroll across the map.
 
 ## Controllers
 
