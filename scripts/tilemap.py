@@ -126,7 +126,7 @@ class Tilemap:
           tile = self.tilemap[loc] 
           if tile['type'] not in self.game.assets: continue
           surf.blit(self.game.assets[tile['type']][tile['variant']], (tile['pos'][0] * self.tile_size - offset[0], tile['pos'][1] * self.tile_size - offset[1])) 
-
+          
     
     
       
