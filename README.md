@@ -25,3 +25,5 @@ In this game, you play as a ninja navigating through action-packed levels filled
 1. Go to the Releases section or find the downloadable `.exe` file.
 2. Download the `.exe` file along with the assets/data folder.
 3. Open the `.exe` file and the game will be playable immediately without needing Python installed!
+
+<img width="772" height="608" alt="Screenshot 2026-07-23 185957" src="https://github.com/user-attachments/assets/81a1801c-86fe-4e85-93ba-4c4d177e1491" />
