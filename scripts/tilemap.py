@@ -35,7 +35,7 @@ class Tilemap:
         if not keep:
           self.offgrid_tiles.remove(tile) 
     
-    for loc in self.tilemap:
+    for loc in list(self.tilemap):
       tile = self.tilemap[loc]
       if (tile['type'], tile['variant']) in id_pairs:
         matches.append(tile.copy()) 
@@ -71,6 +71,14 @@ class Tilemap:
     self.tilemap = map_data['tilemap'] 
     self.tile_size = map_data['tile_size']
     self.offgrid_tiles = map_data['offgrid'] 
+  
+  
+  def solid_checks(self, pos):
+    tile_loc = str(int(pos[0] // self.tile_size)) + ';' + str(int(pos[1] // self.tile_size)) 
+    if tile_loc in self.tilemap:
+      if self.tilemap[tile_loc]['type'] in PHYSICS_TILES:
+        return self.tilemap[tile_loc] 
+  
     
   def physics_rects_around(self, pos):
     rects = []
@@ -84,6 +92,7 @@ class Tilemap:
         key = f"{tx};{ty}"
         if key in self.tilemap:
           tile = self.tilemap[key]
+          if tile['type'] not in PHYSICS_TILES: continue
           rects.append(pygame.Rect(tile['pos'][0] * self.tile_size, tile['pos'][1] * self.tile_size, self.tile_size, self.tile_size))
 
     return rects 
@@ -105,6 +114,7 @@ class Tilemap:
   def render(self, surf, offset=(0,0)):
     
     for tile in self.offgrid_tiles:
+      if tile['type'] not in self.game.assets: continue
       surf.blit(self.game.assets[tile['type']][tile['variant']], (tile['pos'][0] - offset[0], tile['pos'][1] - offset[1])) 
       
     
@@ -114,6 +124,7 @@ class Tilemap:
         
         if loc in self.tilemap:
           tile = self.tilemap[loc] 
+          if tile['type'] not in self.game.assets: continue
           surf.blit(self.game.assets[tile['type']][tile['variant']], (tile['pos'][0] * self.tile_size - offset[0], tile['pos'][1] * self.tile_size - offset[1])) 
 
     
