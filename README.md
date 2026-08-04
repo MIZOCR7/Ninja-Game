@@ -4,7 +4,7 @@ Ninja Game is the best pygame projects I have ever made until now bcs my experie
 
 ## What I learnt
 
-My last game that I submitted to beast was about Ninja but two players figthing each other in one single screen and without levels or extra just some classes working together but here I tried to make things different by gathering more classes and OOP methoods in one place and many files in different paths, this will guide me to the next step of making my coming game by the way I am not a game making lover just got this advice from TIM a Youtube who said that best way to be a smart Software Engineer is making games with python, and now I understand why!!!!!! 
+My last game that I submitted to beast was about Ninja but two players figthing each other in one single screen and without levels or extra just some classes working together but here I tried to make things different by gathering more classes and OOP methoods in one place and many files in different paths, this will guide me to the next step of making my coming game by the way I am not a game making lover just got this advice from TIM a Youtube who said that best way to be a smart Software Engineer is making games with python, and now I understand why!!!!!
 
 
 ## Controllers
