@@ -20,4 +20,27 @@ My last game that I submitted to beast was about Ninja but two players figthing 
 2. Download the `.exe` file along with the assets/data folder.
 3. Open the `.exe` file and the game will be playable immediately without needing Python installed!
 
+Before running the game, make sure you have the following installed on your system:
+* **Python 3.x** ([python.org](https://www.python.org/))
+* **Git** ([git-scm.com](https://git-scm.com/))
+
+
 <img width="772" height="608" alt="Screenshot 2026-07-23 185957" src="https://github.com/user-attachments/assets/81a1801c-86fe-4e85-93ba-4c4d177e1491" />
+
+Open your terminal or command prompt and run the following commands:
+
+```bash
+# Clone the repository
+git clone [https://github.com/MIZOCR7/Ninja-Game](https://github.com/MIZOCR7/Ninja-Game)
+
+# Enter the project directory
+cd "Ninja-Game"
+
+# Install Pygame
+pip install pygame
+
+# Run the game
+python game.py
+
+
+
