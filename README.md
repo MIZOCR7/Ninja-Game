@@ -39,7 +39,6 @@ cd "Ninja-Game"
 pip install pygame
 
 # Run the game
-python game.py
-
+python main.py
 
 
