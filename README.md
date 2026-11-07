@@ -25,7 +25,6 @@ Before running the game, make sure you have the following installed on your syst
 * **Git** ([git-scm.com](https://git-scm.com/))
 
 
-<img width="772" height="608" alt="Screenshot 2026-07-23 185957" src="https://github.com/user-attachments/assets/81a1801c-86fe-4e85-93ba-4c4d177e1491" />
 
 Open your terminal or command prompt and run the following commands:
 
