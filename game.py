@@ -3,9 +3,10 @@ import sys
 import math 
 import random
 import os 
+from scripts.utils import load_images, load_image, load_sound, Animation, resource_path
 
 from scripts.entities import PhysicsEntity, Player, Enemy
-from scripts.utils import load_images, load_image, Animation
+from scripts.utils import load_images, load_image, Animation, resource_path
 from scripts.tilemap import Tilemap
 from scripts.clouds import Clouds 
 from scripts.particles import Particle
@@ -53,11 +54,11 @@ class Game():
     } 
     
     self.sfx = {
-      'jump': pygame.mixer.Sound('data/sfx/jump.wav'),
-      'dash': pygame.mixer.Sound('data/sfx/dash.wav'),
-      'hit': pygame.mixer.Sound('data/sfx/hit.wav'),
-      'shoot': pygame.mixer.Sound('data/sfx/shoot.wav'),
-      'ambience': pygame.mixer.Sound('data/sfx/ambience.wav'), 
+      'jump': pygame.mixer.Sound(resource_path('data/sfx/jump.wav')),
+      'dash': pygame.mixer.Sound(resource_path('data/sfx/dash.wav')),
+      'hit': pygame.mixer.Sound(resource_path('data/sfx/hit.wav')),
+      'shoot': pygame.mixer.Sound(resource_path('data/sfx/shoot.wav')),
+      'ambience': pygame.mixer.Sound(resource_path('data/sfx/ambience.wav')), 
     }
     
     self.sfx['ambience'].set_volume(0.2)
@@ -86,7 +87,7 @@ class Game():
     
     player_feet = (self.player.pos[0] + self.player.size[0] / 2, self.player.pos[1] + self.player.size[1])
     
-    self.font = pygame.font.Font('fonts/ZeroCool.ttf', 10)
+    self.font = pygame.font.Font(resource_path('fonts/ZeroCool.ttf'), 10)
     
   
   def draw_text(self, text, surface, pos, color=(255,255,255), shadow_color=(0,0,0)):
@@ -98,7 +99,7 @@ class Game():
   
   
   def load_level(self, map_id):
-    self.tilemap.load('data/maps/' + str(map_id) + '.json') 
+    self.tilemap.load(resource_path('data/maps/' + str(map_id) + '.json')) 
     
     self.leaf_spawners = []  
     for tree in self.tilemap.extract([('large_decor', 2)], keep=True):
@@ -120,7 +121,7 @@ class Game():
     self.transition_level = -30 
     
   def run(self):
-    pygame.mixer.music.load('data/music.wav')
+    pygame.mixer.music.load(resource_path('data/music.wav'))
     pygame.mixer.music.set_volume(0.5)
     pygame.mixer.music.play(-1)
     
@@ -145,7 +146,7 @@ class Game():
         if not len(self.enemies):
           self.transition_level += 1
           if self.transition_level > 30:
-            self.level = min(self.level + 1, len([f for f in os.listdir('data/maps') if f.endswith('.json') and f[0].isdigit()]) - 1)
+            self.level = min(self.level + 1, len([f for f in os.listdir(resource_path('data/maps')) if f.endswith('.json') and f[0].isdigit()]) - 1)
             self.load_level(str(self.level)) 
         if self.transition_level < 0:
           self.transition_level += 1 

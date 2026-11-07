@@ -1,20 +1,39 @@
 import os
+import sys
 import pygame
+from scripts import pixel_assets
 
-BASE_IMG_PATH = 'data/images/' 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except AttributeError:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+BASE_IMG_PATH = resource_path('data/images/') 
 
 def load_image(path):
-  img = pygame.image.load(BASE_IMG_PATH + path).convert() 
+  if path in pixel_assets.IMAGES:
+    img = pixel_assets.IMAGES[path]().convert()
+  else:
+    img = pygame.image.load(BASE_IMG_PATH + path).convert()
   img.set_colorkey((0,0,0))
   return img 
   
 
 def load_images(path):
+  names = pixel_assets.listdir(path)
+  if names:
+    return [load_image(path + '/' + n) for n in names]
   images = []
   for img_name in sorted(os.listdir(BASE_IMG_PATH + path)): 
     images.append(load_image(path + '/' + img_name)) 
   
-  return images 
+  return images
+  
+
+def load_sound(name):
+  return pixel_assets.make_sound(name)
 
 
 class Animation:
@@ -41,3 +60,8 @@ class Animation:
     return self.images[int(self.frame / self.img_duration)] 
   
   
+
+
+
+
+
